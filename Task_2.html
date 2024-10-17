@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Duplicates from Sorted Array</title>
+</head>
+<body>
+
+<h2>Remove Duplicates from Sorted Array</h2>
+
+<!-- Input for sorted array of integers -->
+<label for="inputArray">Enter sorted numbers: </label>
+<input type="text" id="inputArray" placeholder="e.g., 1,1,2,3,3,4,5" />
+<br><br>
+
+<!-- Button to trigger the function -->
+<button onclick="removeDuplicates()">Remove Duplicates</button>
+
+<!-- Result display -->
+<h3>Result:</h3>
+<p id="result"></p>
+
+<script>
+    function removeDuplicates() {
+        // Get the input array as a string
+        const input = document.getElementById("inputArray").value;
+
+        // Convert the input string into an array of numbers
+        const numArray = input.split(',').map(Number);
+
+        // Check if the array is valid (not empty)
+        if (numArray.length === 0 || numArray.some(isNaN)) {
+            document.getElementById("result").textContent = "Please enter valid sorted numbers!";
+            return;
+        }
+
+        // Remove duplicates from the sorted array
+        let uniqueArray = [];
+        for (let i = 0; i < numArray.length; i++) {
+            if (i === 0 || numArray[i] !== numArray[i - 1]) {
+                uniqueArray.push(numArray[i]);
+            }
+        }
+
+        // Display the result and the new length of the array
+        document.getElementById("result").textContent = 
+            `Unique Array: ${uniqueArray.join(', ')} | New Length: ${uniqueArray.length}`;
+    }
+</script>
+
+</body>
+</html>

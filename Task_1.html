@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Array In-Place</title>
+</head>
+<body>
+
+<h2>Reverse the Order of Elements in an Array</h2>
+
+<!-- Input for array of integers -->
+<label for="inputArray">Enter numbers: </label>
+<input type="text" id="inputArray" placeholder="e.g., 1,2,3,4,5" />
+<br><br>
+
+<!-- Button to trigger the reverse function -->
+<button onclick="reverseArray()">Reverse Array</button>
+
+<!-- Result display -->
+<h3>Reversed Array:</h3>
+<p id="result"></p>
+
+<script>
+    function reverseArray() {
+        // Get the input array as a string
+        const input = document.getElementById("inputArray").value;
+
+        // Convert the input string into an array of numbers
+        const numArray = input.split(',').map(Number);
+
+        // Check if the array is valid (not empty)
+        if (numArray.length === 0 || numArray.some(isNaN)) {
+            document.getElementById("result").textContent = "Please enter valid numbers!";
+            return;
+        }
+
+        // Reverse the array in-place
+        numArray.reverse();
+
+        // Display the reversed array
+        document.getElementById("result").textContent = `Reversed Array: ${numArray.join(', ')}`;
+    }
+</script>
+
+</body>
+</html>
